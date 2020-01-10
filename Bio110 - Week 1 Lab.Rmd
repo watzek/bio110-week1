@@ -139,17 +139,17 @@ Now let's apply some of these concepts and functions above to plot heart rate. W
 ```{r}
 #start by entering a vector of the x-values in the parentheses below, time in seconds
 x<-c()
-x<-c(0, 20, 40, 60, 80, 100, 120)
+
 #and one for the y-values, heartbeats (in order)
 y1=c()
-y1<-c(0, 24, 50, 70, 96, 121, 124)
+
 #then plot y against x to see a scatterplot of your data
 #the operator "~" means "value on the left depends upon value on the right"... or "y1 is a function of x": 
 plot(y1~x)
 ```
 
 
-We can add additional information to the plot, including specific x and y axis limits, axes labels, and a title.
+We can add additional information to the plot, including specific x and y axis limits, axes labels, and a title. Make sure you update the "main" text value so it contains your name.
 
 ```{r}
 #if you want to adjust the axis limits (adjust as needed for your data), add labels, and a title
@@ -159,6 +159,7 @@ plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="Student's heart beats", xlab="tim
 ```
 
 
+Below is a series of commands that adds a best fit line. It may seem a little strange that the "abline" command isn't connected to the plot command, but still affects the plot output. In R, once the "plot" command is run, it assumes that subsequent plot-related commands (like "abline") should be applied to that plot. 
 
 ```{r}
 # in order to run the abline function below, you must first run the plot function:
@@ -173,27 +174,26 @@ model
 ```
 
 
-You can plot a second set of values by first creating another vector:
+You can plot a second set of values by first creating another vector. Below, create a vector (y2) that has your heartbeat count values while exercising. They should be at the same time intervals as x.
 
 ```{r}
 #to add another set of points and another line...
-y2<-c(0, 28, 58, 80, 100, 135, 140)
+y2<-c()
+
 
 
 ```
 
-Now we can use the "matplot" function, which lets you plot multiple columns or sets of data:
+Now we can use the "matplot" function, which lets you plot multiple columns or sets of data. Make sure you update the "main" section to include your name.
 
 ```{r}
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Greg's heart rate increases with exercise", xlab="time in seconds", ylab="resting beats-red and exercising beats-green")
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Student's heart rate increases with exercise", xlab="time in seconds", ylab="resting beats-red and exercising beats-green")
 
 ```
 
 
-
-
------ Last stuff below, explain better.
+Now we want to add best-fit lines to both data sets y1 and y2. The procedure for this is nearly identical to what we did before. Instead of using "plot", we'll use "matplot" since we're comparing two data sets. Also, we'll create a model and abline for each vector:
 
 
 ```{r}
@@ -225,3 +225,4 @@ legend(0,140, c("exercising heartrate", "resting heartrate"), lty=c(1,1), lwd=c(
 ```
 
 
+Finally, you'll need to turn in a copy of the last plot. To save a copy of the file, the easiest way is to right-click on the plot, and select "Save Image as...." (messages may vary by browser). Save the image to your computer, and then email it to your professor. The file name should be in this format: "MyName_Lab1.jpg". So if your name is Jane Doe, the file name should be "JaneDoe_Lab1.jpg".
