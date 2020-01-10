@@ -5,9 +5,13 @@ output:
   html_notebook: default
 ---
 
-## Intro to R and RStudio Server
+# Lab 1 - Heart Rate Lab
 
-(flush this out.....)
+Before getting started with the Heart Rate Lab, we'll go over some basics of using R and this R Notebook. For a more in depth dive, check out this resource on Coding Club:
+https://ourcodingclub.github.io/2016/11/13/intro-to-r.html
+
+As you go through this document, you'll encounter a series of grey areas with little green "play" buttons in the upper right-hand corner. These are called code chunks. This is where you can write and run R code. Some of the code chunks already have example code, while some are intended for you to write and run your own code. To run the code chunk, just click the play button. The results will appear below the code chunk.
+
 
 ## Coding with R
 
@@ -41,7 +45,7 @@ myFavoriteNumber
 
 ```
 
-Note in the above examples that quotation marks are used to define a, but not myFavoriteNumber. This is beacuse a
+Note in the above examples that quotation marks are used to define a, but not myFavoriteNumber. This is beacuse variables can have different types, and quotes (or lack of quotes) can help indicate what kind of type your variable is. Generally quotes are required for string (e.g. text) varaibles, while quotes are not required for integers, functions, or setting one variable equal to another.
 
 
 Now it's your turn. In the code block below, set a variable "myVar" equal to five times 20, and then print it:
@@ -194,9 +198,13 @@ matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main
 
 ```{r}
 
+#prior to generating the plot, you can set some graphical parameters with the "par" function
+#ces.axis changes the font size on the axis values (0.75 is 75% of default). Adjust this as necessary to make sure all x and y axis
+par(cex.axis=0.75)
 
+#more on graphical parameters here: https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/par 
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Greg's heart rate increases with exercise", xlab="time in seconds", ylab="resting beats-red and exercising beats-green")
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="My Title", xlab="time in seconds", ylab="resting beats-red and exercising beats-green")
 
 #repeat the linear model for y1
 model<-lm(y1~0+x)
@@ -211,6 +219,7 @@ model2
 
 #to add a legend, first need coordinates of the legend, c(“labels”), lty determines symbols with 1 = lines, lwd determines width of lines, colors 
 legend(0,140, c("exercising heartrate", "resting heartrate"), lty=c(1,1), lwd=c(2.5, 2.5), col=c("green", "red") )
+
 
 
 ```
