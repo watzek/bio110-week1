@@ -45,7 +45,8 @@ myFavoriteNumber
 
 ```
 
-Note in the above examples that quotation marks are used to define a, but not myFavoriteNumber. This is beacuse variables can have different types, and quotes (or lack of quotes) can help indicate what kind of type your variable is. Generally quotes are required for string (e.g. text) varaibles, while quotes are not required for integers, functions, or setting one variable equal to another.
+Note in the above examples that quotation marks are used to define a, but not myFavoriteNumber. This is because variables can have different types, and quotes (or lack of quotes) can help indicate what kind of type your variable is. Generally quotes are required for a string (e.g. text) variables, while quotes are not required for integers, functions, or setting one variable equal to another.
+
 
 
 Now it's your turn. In the code block below, set a variable "myVar" equal to five times 20, and then print it:
@@ -85,7 +86,7 @@ sqrt(9)
 sqrt(x=9)
 
 #this won't work:
-# sqrt(y=9)
+sqrt(y=9)
 
 ```
 
@@ -138,10 +139,9 @@ Now let's apply some of these concepts and functions above to plot heart rate. W
 
 ```{r}
 #start by entering a vector of the x-values in the parentheses below, time in seconds
-x<-c()
-
-#and one for the y-values, heartbeats (in order)
-y1=c()
+x<-c(0, 20, 40, 60, 80, 100, 120)
+#and one for the y-values, heartbeats (enter your data in the parentheses in order)
+y1<-c(0, )
 
 #then plot y against x to see a scatterplot of your data
 #the operator "~" means "value on the left depends upon value on the right"... or "y1 is a function of x": 
@@ -149,7 +149,7 @@ plot(y1~x)
 ```
 
 
-We can add additional information to the plot, including specific x and y axis limits, axes labels, and a title. Make sure you update the "main" text value so it contains your name.
+We can add additional information to the plot, including specific x and y axis limits, axes labels, and a title.
 
 ```{r}
 #if you want to adjust the axis limits (adjust as needed for your data), add labels, and a title
@@ -159,7 +159,9 @@ plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="Student's heart beats", xlab="tim
 ```
 
 
-Below is a series of commands that adds a best fit line. It may seem a little strange that the "abline" command isn't connected to the plot command, but still affects the plot output. In R, once the "plot" command is run, it assumes that subsequent plot-related commands (like "abline") should be applied to that plot. 
+Now you should have a scatterplot of your heartbeat data with some labels.  Please ask for help from your instructor or TA if you are having any issues so far.
+
+Next we want to add a best fit trendline to determine heartrate.
 
 ```{r}
 # in order to run the abline function below, you must first run the plot function:
@@ -174,26 +176,26 @@ model
 ```
 
 
-You can plot a second set of values by first creating another vector. Below, create a vector (y2) that has your heartbeat count values while exercising. They should be at the same time intervals as x.
+Click on the plot to see a scatter plot with a best fit line for your resting heartrate.  Click on R Console to see the coefficient which is the slope of the line and reflects your resting heartrate in heartbeats per second.  
+
+To compare your resting heartrate to your heartrate under your experimental condition, make a vector called y2 with the heartbeat data from your experimental condition.
 
 ```{r}
-#to add another set of points and another line...
-y2<-c()
-
-
+#enter the heartbeat data collected for your experimental condition in the parentheses
+y2<-c(0, )
 
 ```
 
-Now we can use the "matplot" function, which lets you plot multiple columns or sets of data. Make sure you update the "main" section to include your name.
+Now we can use the "matplot" function to plot multiple columns or sets of data:
 
 ```{r}
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Student's heart rate increases with exercise", xlab="time in seconds", ylab="resting beats-red and exercising beats-green")
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Student's heart rate increases with exercise", xlab="time in seconds", ylab="heartbeats")
 
 ```
 
 
-Now we want to add best-fit lines to both data sets y1 and y2. The procedure for this is nearly identical to what we did before. Instead of using "plot", we'll use "matplot" since we're comparing two data sets. Also, we'll create a model and abline for each vector:
+The scatterplot above should show both sets of data in a scatterplot.  Follow the instructions below to add trendlines and calculate the slopes of those lines.
 
 
 ```{r}
