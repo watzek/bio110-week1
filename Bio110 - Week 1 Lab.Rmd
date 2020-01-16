@@ -153,7 +153,7 @@ We can add additional information to the plot, including specific x and y axis l
 
 ```{r}
 #if you want to adjust the axis limits (adjust as needed for your data), add labels, and a title
-plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="Student's heart beats", xlab="time in seconds", ylab = "number of heartbeats")
+plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="My heart beats", xlab="time in seconds", ylab = "number of heartbeats")
 
 
 ```
@@ -165,7 +165,7 @@ Next we want to add a best fit trendline to determine heartrate.
 
 ```{r}
 # in order to run the abline function below, you must first run the plot function:
-plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="Student's heart beats", xlab="time in seconds", ylab = "number of heartbeats")
+plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="My heart beats", xlab="time in seconds", ylab = "number of heartbeats")
 
 #to add the line, setting the y interect at zero, and get its slope, fit a linear model to the data and store the results in a variable (named "model" here).
 model<-lm(formula=y1~0+x)
@@ -190,7 +190,7 @@ Now we can use the "matplot" function to plot multiple columns or sets of data:
 
 ```{r}
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Student's heart rate increases with exercise", xlab="time in seconds", ylab="heartbeats")
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Experimental vs. control heart rate", xlab="time in seconds", ylab="heartbeats")
 
 ```
 
@@ -206,7 +206,7 @@ par(cex.axis=0.75)
 
 #more on graphical parameters here: https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/par 
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="My Title", xlab="time in seconds", ylab="resting beats-red and exercising beats-green")
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="My Title", xlab="time in seconds", ylab="control beats-red and experimental beats-green")
 
 #repeat the linear model for y1
 model<-lm(y1~0+x)
@@ -220,7 +220,7 @@ abline(model2, col="green")
 model2
 
 #to add a legend, first need coordinates of the legend, c(“labels”), lty determines symbols with 1 = lines, lwd determines width of lines, colors 
-legend(0,140, c("exercising heartrate", "resting heartrate"), lty=c(1,1), lwd=c(2.5, 2.5), col=c("green", "red") )
+legend(0,140, c("experiemental heartrate", "control heartrate"), lty=c(1,1), lwd=c(2.5, 2.5), col=c("green", "red") )
 
 
 
