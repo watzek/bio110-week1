@@ -202,11 +202,13 @@ The scatterplot above should show both sets of data in a scatterplot.  Follow th
 
 #prior to generating the plot, you can set some graphical parameters with the "par" function
 #ces.axis changes the font size on the axis values (0.75 is 75% of default). Adjust this as necessary to make sure all x and y axis
-par(cex.axis=0.75)
+par(cex.axis=0.6)
 
 #more on graphical parameters here: https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/par 
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="My Title", xlab="time in seconds", ylab="control beats-red and experimental beats-green")
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="My Title", xlab="time in seconds", ylab="control beats-red and experimental beats-green", ylim=c(0,140))
+
+#note: you may have to adjust the ylim values to ensure all your data displays - for example, if you have a data point at 150, you'll want to increase your ylim 2nd value so it's 150 or greater
 
 #repeat the linear model for y1
 model<-lm(y1~0+x)
@@ -220,11 +222,17 @@ abline(model2, col="green")
 model2
 
 #to add a legend, first need coordinates of the legend, c(“labels”), lty determines symbols with 1 = lines, lwd determines width of lines, colors 
-legend(0,140, c("experiemental heartrate", "control heartrate"), lty=c(1,1), lwd=c(2.5, 2.5), col=c("green", "red") )
+legend(x=0, y=140, legend=c("experiemental heartrate", "control heartrate"), lty=c(1,1), lwd=c(2.5, 2.5), col=c("green", "red") )
 
-
+#note - you may have to adjust the x and y values of the legend if they don't fit in the plot. 
 
 ```
 
 
-Finally, you'll need to turn in a copy of the last plot. To save a copy of the file, the easiest way is to right-click on the plot, and select "Save Image as...." (messages may vary by browser). Save the image to your computer, and then email it to your professor. The file name should be in this format: "MyName_Lab1.jpg". So if your name is Jane Doe, the file name should be "JaneDoe_Lab1.jpg".
+Finally, you'll need to turn in a copy of the last plot. There are two ways to do this:
+
+1) copy the entire code chunk above (not including the "```" parts), and paste in the console prompt in the window below. This should generate the plot in the "Plots" tab on the right. From there you can click "Export", then "save image as...", and save the image to your computer.
+
+2) Hover your mouse over the plot above, and control-click (e.g. "right click"), and then select "save as...", and save the image to your computer.
+
+Then email it to your professor. The file name should be in this format: "MyName_Lab1.jpg". So if your name is Jane Doe, the file name should be "JaneDoe_Lab1.jpg".
