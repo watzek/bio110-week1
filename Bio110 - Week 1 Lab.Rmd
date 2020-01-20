@@ -153,7 +153,7 @@ We can add additional information to the plot, including specific x and y axis l
 
 ```{r}
 #if you want to adjust the axis limits (adjust as needed for your data), add labels, and a title
-plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="My heart beats", xlab="time in seconds", ylab = "number of heartbeats")
+plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="My Title", xlab="time in seconds", ylab = "number of heartbeats")
 
 
 ```
@@ -165,9 +165,9 @@ Next we want to add a best fit trendline to determine heartrate.
 
 ```{r}
 # in order to run the abline function below, you must first run the plot function:
-plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="My heart beats", xlab="time in seconds", ylab = "number of heartbeats")
+plot(y1~x, xlim=c(0,120), ylim=c(0,140), main="My Title", xlab="time in seconds", ylab = "number of heartbeats")
 
-#to add the line, setting the y interect at zero, and get its slope, fit a linear model to the data and store the results in a variable (named "model" here).
+#to add the line, setting the y intersect at zero, and get its slope, fit a linear model to the data and store the results in a variable (named "model" here).
 model<-lm(formula=y1~0+x)
 #add a best-fit line to the graph
 abline (reg=model)
@@ -190,7 +190,7 @@ Now we can use the "matplot" function to plot multiple columns or sets of data:
 
 ```{r}
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Experimental vs. control heart rate", xlab="time in seconds", ylab="heartbeats")
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="Mt Title", xlab="time in seconds", ylab="heartbeats")
 
 ```
 
@@ -206,7 +206,7 @@ par(cex.axis=0.6)
 
 #more on graphical parameters here: https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/par 
 
-matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="My Title", xlab="time in seconds", ylab="control beats-red and experimental beats-green", ylim=c(0,140))
+matplot(x=x, y=cbind(y1,y2), type="p", col=c("red", "green"), pch=c(16,16), main="My Title", xlab="time in seconds", ylab="heartbeats", ylim=c(0,140))
 
 #note: you may have to adjust the ylim values to ensure all your data displays - for example, if you have a data point at 150, you'll want to increase your ylim 2nd value so it's 150 or greater
 
@@ -222,7 +222,7 @@ abline(model2, col="green")
 model2
 
 #to add a legend, first need coordinates of the legend, c(“labels”), lty determines symbols with 1 = lines, lwd determines width of lines, colors 
-legend(x=0, y=140, legend=c("experiemental heartrate", "control heartrate"), lty=c(1,1), lwd=c(2.5, 2.5), col=c("green", "red") )
+legend(x=0, y=140, legend=c("experimental heartrate", "control heartrate"), lty=c(1,1), lwd=c(2.5, 2.5), col=c("green", "red") )
 
 #note - you may have to adjust the x and y values of the legend if they don't fit in the plot. 
 
